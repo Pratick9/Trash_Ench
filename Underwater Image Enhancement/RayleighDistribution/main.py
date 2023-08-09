@@ -56,7 +56,7 @@ for i in range(len(files)):
 
         sceneRadiance = HSVStretching(sceneRadiance)
         sceneRadiance = sceneRadianceRGB(sceneRadiance)
-        cv2.imwrite('/kaggle/working/Trash_Ench/EnhancedImages/RD/' + prefix + '_RayleighDistribution.jpg', sceneRadiance)
+        cv2.imwrite('/kaggle/working/' + prefix + '_RayleighDistribution.jpg', sceneRadiance)
 
 
 
