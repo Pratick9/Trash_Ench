@@ -25,9 +25,9 @@ if __name__ == '__main__':
     pass
 
 # folder = "C:/Users/Administrator/Desktop/UnderwaterImageEnhancement/NonPhysical/RayleighDistribution"
-folder = "C:/Users/Administrator/Desktop/Databases/Dataset"
+folder = "/kaggle/input/trash-icra-19/trash_ICRA19/dataset"
 
-path = folder + "/InputImages"
+path = folder + "/train"
 files = os.listdir(path)
 files =  natsort.natsorted(files)
 
@@ -35,10 +35,11 @@ for i in range(len(files)):
     file = files[i]
     filepath = path + "/" + file
     prefix = file.split('.')[0]
-    if os.path.isfile(filepath):
+    extension_check = file.split('.')[1]
+    if os.path.isfile(filepath) and extension_check == 'jpg':
         print('********    file   ********',file)
-        # img = cv2.imread('InputImages/' + file)
-        img = cv2.imread(folder + '/InputImages/' + file)
+        # img = cv2.imread('train/' + file)
+        img = cv2.imread(folder + '/train/' + file)
         prefix = file.split('.')[0]
         height = len(img)
         width = len(img[0])
@@ -55,10 +56,10 @@ for i in range(len(files)):
 
         sceneRadiance = HSVStretching(sceneRadiance)
         sceneRadiance = sceneRadianceRGB(sceneRadiance)
-        cv2.imwrite('OutputImages/' + prefix + '_RayleighDistribution.jpg', sceneRadiance)
+        cv2.imwrite('/kaggle/working/Trash_Ench/EnhancedImages/RD/' + prefix + '_RayleighDistribution.jpg', sceneRadiance)
 
 
 
-endtime = datetime.datetime.now()
-time = endtime-starttime
-print('time',time)
+#endtime = datetime.datetime.now()
+#time = endtime-starttime
+#print('time',time)
