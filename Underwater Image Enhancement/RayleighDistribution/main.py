@@ -27,7 +27,7 @@ if __name__ == '__main__':
 # folder = "C:/Users/Administrator/Desktop/UnderwaterImageEnhancement/NonPhysical/RayleighDistribution"
 folder = "/kaggle/input/trash-icra-19/trash_ICRA19/dataset"
 
-path = folder + "/train"
+path = folder + "/val"
 files = os.listdir(path)
 files =  natsort.natsorted(files)
 
@@ -38,8 +38,8 @@ for i in range(len(files)):
     extension_check = file.split('.')[1]
     if os.path.isfile(filepath) and extension_check == 'jpg':
         print('********    file   ********',file)
-        # img = cv2.imread('train/' + file)
-        img = cv2.imread(folder + '/train/' + file)
+        # img = cv2.imread('val/' + file)
+        img = cv2.imread(folder + '/val/' + file)
         prefix = file.split('.')[0]
         height = len(img)
         width = len(img[0])
